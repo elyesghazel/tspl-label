@@ -1,0 +1,4 @@
+# Give the logged-in user (uaccess) and members of the lp group access to the printer.
+# Y41BT / YXWL is 5958:0041. Add a line for your printer: get the ids from `lsusb`
+# or `journalctl -k | grep idVendor` right after plugging it in.
+SUBSYSTEM=="usbmisc", ATTRS{idVendor}=="5958", ATTRS{idProduct}=="0041", TAG+="uaccess", GROUP="lp", MODE="0660"
